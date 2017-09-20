@@ -6,6 +6,6 @@ class ConfigManager:
 
     def read_file_to_dict(self, infile):
         with open(infile) as conf:
-            for line in conf:
+            for line in conf.read().splitlines():
                 (key, value) = line.split('=')
                 self.config[key] = value
