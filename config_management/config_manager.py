@@ -8,8 +8,9 @@ class ConfigManager:
     def read_file_to_dict(self, infile):
         with open(infile) as conf:
             for line in conf.read().splitlines():
-                (key, value) = line.split('=')
-                self.config[key] = value
+                if line and not line.startswith('#'):
+                    (key, value) = line.strip().split('=')
+                    self.config[key] = value
 
     def get(self, key):
         return self.config.get(key)
