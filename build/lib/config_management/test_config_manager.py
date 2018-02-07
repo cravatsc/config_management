@@ -12,6 +12,7 @@ class TestConfigManagement(unittest.TestCase):
         self.assertEqual(self.conf.get('key'), 'value')
         self.assertTrue(isinstance(self.conf.config, dict))
         self.assertTrue(len(self.conf.config) == 2)
+        self.assertNotIn('#test',self.conf.config.keys())
 
 
 if __name__ == '__main__':
