@@ -11,8 +11,9 @@ class TestConfigManagement(unittest.TestCase):
         self.assertEqual(self.conf.get('sample'), 'file')
         self.assertEqual(self.conf.get('key'), 'value')
         self.assertTrue(isinstance(self.conf.config, dict))
-        self.assertTrue(len(self.conf.config) == 2)
+        self.assertTrue(len(self.conf.config) == 3)
         self.assertNotIn('#test',self.conf.config.keys())
+        self.assertEqual(self.conf.get('twoequals'), 'test=two')
 
 
 if __name__ == '__main__':

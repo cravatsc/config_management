@@ -9,7 +9,7 @@ class ConfigManager:
         with open(infile) as conf:
             for line in conf.read().splitlines():
                 if line and not line.startswith('#'):
-                    (key, value) = line.strip().split('=')
+                    (key, value) = line.strip().split('=', maxsplit=1)
                     self.config[key] = value
 
     def get(self, key):
